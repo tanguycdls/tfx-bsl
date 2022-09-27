@@ -25,7 +25,8 @@ _BATCH_SIZE_CAP = 1000
 def GetBatchElementsKwargs(batch_size: Optional[int]):
   """Returns the kwargs to pass to beam.BatchElements()."""
   if batch_size is None:
-    return {"max_batch_size": _BATCH_SIZE_CAP}
+    return {"max_batch_size": _BATCH_SIZE_CAP,
+           "min_batch_size": _BATCH_SIZE_CAP}
   return {
       "min_batch_size": batch_size,
       "max_batch_size": batch_size,
